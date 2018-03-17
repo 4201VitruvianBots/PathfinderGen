@@ -33,5 +33,9 @@ public class PathfinderGen {
 		path.add(new Path("driveStraight", Waypoints.driveStraight));
 		path.add(new Path("centerAutoLeft", Waypoints.centerAutoLeft));
 		path.add(new Path("centerAutoRight", Waypoints.centerAutoRight));
+		path.add(new Path("rightStartToRightSwitch", Waypoints.rightStartToRightSwitch));
+		path.add(new Path("rightStartToRightScale", Waypoints.rightStartToRightScale));
+		path.add(new Path("leftStartToLeftSwitch", Waypoints.leftStartToLeftSwitch));
+		path.add(new Path("leftStartToLeftScale", Waypoints.leftStartToLeftScale));
 	}
 }

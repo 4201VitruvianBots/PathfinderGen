@@ -4,7 +4,7 @@ import jaci.pathfinder.Waypoint;
 public class Path {
 	Trajectory.FitMethod fitMethod = Trajectory.FitMethod.HERMITE_CUBIC; 
 	double max_vel = 2;
-	double max_accel = 2;
+	double max_accel = 2.4;
 	double max_jerk = 60;
 	int samples = Trajectory.Config.SAMPLES_HIGH;
 	double period = 0.05;
@@ -15,6 +15,8 @@ public class Path {
 	Trajectory.Config config;
 	
 	public Path(String name, Waypoint[] waypoints) {
+		path = waypoints;
+		this.name = name;
 		reconfigureSettings();
 	}
 	
