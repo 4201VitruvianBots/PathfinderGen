@@ -39,12 +39,16 @@ public class Waypoints {
 		new Waypoint(0, 0, 0),
 		new Waypoint(5, 0, 0)
 	};
-	
+	*/
 	public static Waypoint[] rightStartToLeftScale = {
 		new Waypoint(0, 0, 0),
-		new Waypoint(5, 0, 0)
+		new Waypoint(3.3333, -0.5, 0),
+		new Waypoint(5.3333, -0.5, 0),
+		new Waypoint(6.3333, 0.5, Pathfinder.d2r(90)),
+		new Waypoint(6.3333, 4.7778, Pathfinder.d2r(90)),
+		new Waypoint(7.1, 5.3889, 0),
 	};
-	*/
+	
 	// Left Autos
 	public static Waypoint[] leftStartToLeftSwitch = {
 		new Waypoint(0, 6.2778, 0),

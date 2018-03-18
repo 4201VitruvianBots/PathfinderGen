@@ -6,8 +6,16 @@ import jaci.pathfinder.Trajectory;
 import jaci.pathfinder.modifiers.TankModifier;
 
 public class PathfinderGen {
+	public static double max_vel = 2;
+	public static double max_accel = 2.4;
+	public static double max_jerk = 60;
+	public static int samples = Trajectory.Config.SAMPLES_HIGH;
+	public static Trajectory.FitMethod fitMethod = Trajectory.FitMethod.HERMITE_CUBIC;
+	public static double period = 0.05;
+	
 	static ArrayList<Path> path = new ArrayList<>();
 	static TankModifier modifier;
+	
 	public static void main(String[] args){
 		initializePaths();
 
@@ -45,5 +53,6 @@ public class PathfinderGen {
 		path.add(new Path("rightStartToRightScale", Waypoints.rightStartToRightScale));
 		path.add(new Path("leftStartToLeftSwitch", Waypoints.leftStartToLeftSwitch));
 		path.add(new Path("leftStartToLeftScale", Waypoints.leftStartToLeftScale));
+		path.add(new Path("rightStartToLeftScale", Waypoints.rightStartToLeftScale));
 	}
 }

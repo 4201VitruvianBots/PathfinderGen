@@ -2,12 +2,12 @@ import jaci.pathfinder.Trajectory;
 import jaci.pathfinder.Waypoint;
 
 public class Path {
-	Trajectory.FitMethod fitMethod = Trajectory.FitMethod.HERMITE_CUBIC; 
-	double max_vel = 2;
-	double max_accel = 2.4;
-	double max_jerk = 60;
-	int samples = Trajectory.Config.SAMPLES_HIGH;
-	double period = 0.05;
+	Trajectory.FitMethod fitMethod = PathfinderGen.fitMethod;
+	double max_vel = PathfinderGen.max_vel;
+	double max_accel = PathfinderGen.max_accel;
+	double max_jerk = PathfinderGen.max_jerk;
+	int samples = PathfinderGen.samples;
+	double period = PathfinderGen.period;
 	
 	public String name;
 	public Waypoint[] path;
