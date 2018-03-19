@@ -35,7 +35,7 @@ public class Path {
 		reconfigureSettings();
 	}
 	
-	public void setSamples(Trajectory.FitMethod fitMethod) {
+	public void setFitMethod(Trajectory.FitMethod fitMethod) {
 		this.fitMethod = fitMethod;
 		reconfigureSettings();
 	}

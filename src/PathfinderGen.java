@@ -3,15 +3,18 @@ import java.util.ArrayList;
 
 import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Trajectory;
+import jaci.pathfinder.Trajectory.FitMethod;
 import jaci.pathfinder.modifiers.TankModifier;
 
 public class PathfinderGen {
 	public static double max_vel = 2;
-	public static double max_accel = 2.4;
-	public static double max_jerk = 60;
+	public static double max_accel = 2;
+	public static double max_jerk = 10;
 	public static int samples = Trajectory.Config.SAMPLES_HIGH;
 	public static Trajectory.FitMethod fitMethod = Trajectory.FitMethod.HERMITE_CUBIC;
 	public static double period = 0.05;
+	
+	static int index;
 	
 	static ArrayList<Path> path = new ArrayList<>();
 	static TankModifier modifier;
@@ -39,14 +42,19 @@ public class PathfinderGen {
 					System.out.println("Error: File \"" + path.get(i).name + "_Left.csv\" was not created");
 					System.out.println("Error: File \"" + path.get(i).name + "_Right.csv\" was not created");
 				}
+				index = i;
 			} catch(Exception e){
 				System.out.println("Error: " + e.getMessage());
 			}
 		}
+
+		System.out.println("Number of Paths Generated: " + index);
 	}
 	
 	static void initializePaths(){
 		path.add(new Path("driveStraight", Waypoints.driveStraight));
+		path.add(new Path("driveCalibration", Waypoints.driveCalibration));
+		path.add(new Path("reverseTest", Waypoints.reverseTest));
 		path.add(new Path("centerAutoLeft", Waypoints.centerAutoLeft));
 		path.add(new Path("centerAutoRight", Waypoints.centerAutoRight));
 		path.add(new Path("rightStartToRightSwitch", Waypoints.rightStartToRightSwitch));
@@ -54,5 +62,8 @@ public class PathfinderGen {
 		path.add(new Path("leftStartToLeftSwitch", Waypoints.leftStartToLeftSwitch));
 		path.add(new Path("leftStartToLeftScale", Waypoints.leftStartToLeftScale));
 		path.add(new Path("rightStartToLeftScale", Waypoints.rightStartToLeftScale));
+		//path.get(9).setFitMethod(FitMethod.HERMITE_QUINTIC);
+		path.get(9).setMaxVel(1);
+		path.get(9).setMaxAccel(1);	
 	}
 }
