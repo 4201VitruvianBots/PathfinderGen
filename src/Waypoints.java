@@ -92,7 +92,7 @@ public class Waypoints {
 		new Waypoint(4.7, -5.7, Pathfinder.d2r(90)),
 	};
 	
-	// 4/2/2018 7:43 PM
+	//
 	public static Waypoint[] rightScaleToCubeSix = {
 		new Waypoint(0, 0, 0),
 		new Waypoint(1.3, -1, Pathfinder.d2r(-90)),

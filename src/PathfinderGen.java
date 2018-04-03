@@ -83,6 +83,7 @@ public class PathfinderGen {
 		//path.add(new Path("rightStartToLeftSwitchNearReverseTwo", Waypoints.rightStartToLeftSwitchNearReverseTwo));	// To Test
 		//path.add(new Path("rightStartToLeftSwitchFarReverseOne", Waypoints.rightStartToLeftSwitchFarReverseOne));		// To Test
 		//path.add(new Path("rightStartToLeftSwitchFarReverseTwo", Waypoints.rightStartToLeftSwitchFarReverseTwo));		// To Test
+		//path.add(new Path("rightScaleToCubeSix", Waypoints.rightScaleToCubeSix));
 		//*/
 	}
 }
