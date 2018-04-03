@@ -11,7 +11,7 @@ public class PathfinderGen {
 	public static double max_accel = 2;
 	public static double max_jerk = 10;
 	public static int samples = Trajectory.Config.SAMPLES_HIGH;
-	public static Trajectory.FitMethod fitMethod = Trajectory.FitMethod.HERMITE_CUBIC;
+	public static Trajectory.FitMethod fitMethod = FitMethod.HERMITE_CUBIC;
 	public static double period = 0.05;
 	
 	static int index;
@@ -52,47 +52,37 @@ public class PathfinderGen {
 	}
 	
 	static void initializePaths(){
-		path.add(new Path("leftStartToLeftScaleReverse", Waypoints.leftStartToLeftScaleReverse));
-		path.get(0).setMaxVel(2);
-		path.get(0).setMaxAccel(2);
-		//path.add(new Path("leftStartToLeftSwitchReverseOne", Waypoints.leftStartToLeftSwitchReverseOne));
-		//path.add(new Path("leftStartToLeftSwitchReverseTwo", Waypoints.leftStartToLeftSwitchReverseTwo));
-		//path.add(new Path("leftStartToRightSwitchNearReverseOne", Waypoints.leftStartToRightSwitchNearReverseOne));
-		//path.add(new Path("leftStartToRightSwitchNearReverseTwo", Waypoints.leftStartToRightSwitchNearReverseTwo));
-		//path.add(new Path("leftStartToRightSwitchFarReverseOne", Waypoints.leftStartToRightSwitchFarReverseOne));
-		//path.add(new Path("leftStartToRightSwitchFarReverseTwo", Waypoints.leftStartToRightSwitchFarReverseTwo));
-		path.add(new Path("leftScaleToCubeOneReverse", Waypoints.leftScaleToCubeOneReverse));
-		path.add(new Path("leftStartToRightScale", Waypoints.leftStartToRightScale));
-		path.add(new Path("rightStartToRightScaleReverse", Waypoints.rightStartToRightScaleReverse));
-		//path.add(new Path("centerAutoLeft", Waypoints.centerAutoLeft));
-		//path.add(new Path("centerAutoRight", Waypoints.centerAutoRight));
-		/*
+		// Straight Autos
 		path.add(new Path("driveStraight", Waypoints.driveStraight));
 		path.add(new Path("driveCalibration", Waypoints.driveCalibration));
 		path.add(new Path("centerAutoLeft", Waypoints.centerAutoLeft));
 		path.add(new Path("centerAutoRight", Waypoints.centerAutoRight));
-		path.add(new Path("rightStartToRightSwitch", Waypoints.rightStartToRightSwitch));
-		path.add(new Path("rightStartToRightScaleReverse", Waypoints.rightStartToRightScaleReverse));
-		path.get(5).setMaxVel(2);
-		path.get(5).setMaxAccel(2);
-		path.add(new Path("rightScaleToCubeOneReverse", Waypoints.rightScaleToCubeOneReverse));
-		path.get(6).setMaxVel(4);
-		path.get(6).setMaxAccel(4);
-		path.add(new Path("cubeOneToRightScaleReverse", Waypoints.cubeOneToRightScaleReverse));
-		path.get(7).setMaxVel(4);
-		path.get(7).setMaxAccel(4);
-		/*
-		path.add(new Path("rightStartToRightScale", Waypoints.rightStartToRightScale));
-		path.add(new Path("rightScaleToCubeOne", Waypoints.rightScaleToCubeOne));
-		path.add(new Path("cubeOneToRightScale", Waypoints.cubeOneToRightScale));
+		path.add(new Path("scaleToEdgeCube", Waypoints.scaleToEdgeCube));												// To Redo/Improve
+		path.add(new Path("edgeCubeToScale", Waypoints.edgeCubeToScale));												// To Redo/Improve
+		//path.add(new Path("edgeCubeToSwitch", Waypoints.edgeCubeToSwitch));											// To Test (?)
+		//path.get(path.size())			// shortcut to modify the last added path
 		
-		path.add(new Path("leftStartToLeftSwitch", Waypoints.leftStartToLeftSwitch));
-		path.add(new Path("leftStartToLeftScale", Waypoints.leftStartToLeftScale));
-		path.add(new Path("rightStartToLeftScale", Waypoints.rightStartToLeftScale));
-		path.add(new Path("rightStartToLeftScaleReverse", Waypoints.rightStartToLeftScaleReverse));
-		//path.get(9).setFitMethod(FitMethod.HERMITE_QUINTIC);
-		//path.get(9).setMaxVel(1);
-		//path.get(9).setMaxAccel(1);
+		// Left Autos
+		path.add(new Path("leftStartToLeftScale", Waypoints.leftStartToLeftScale));										// To Redo/Improve
+		path.add(new Path("leftStartToRightScale", Waypoints.leftStartToRightScale));									// To Redo/Improve
+		path.add(new Path("leftStartToLeftSwitchReverseOne", Waypoints.leftStartToLeftSwitchReverseOne));
+		path.add(new Path("leftStartToLeftSwitchReverseTwo", Waypoints.leftStartToLeftSwitchReverseTwo));
+		path.add(new Path("leftStartToRightSwitchNearReverseOne", Waypoints.leftStartToRightSwitchNearReverseOne));
+		path.add(new Path("leftStartToRightSwitchNearReverseTwo", Waypoints.leftStartToRightSwitchNearReverseTwo));
+		path.add(new Path("leftStartToRightSwitchFarReverseOne", Waypoints.leftStartToRightSwitchFarReverseOne));
+		path.add(new Path("leftStartToRightSwitchFarReverseTwo", Waypoints.leftStartToRightSwitchFarReverseTwo));
+		path.add(new Path("leftScaleToCubeOne", Waypoints.leftScaleToCubeOne));
+		//*/
+		
+		// Right Autos
+		path.add(new Path("rightStartToRightScale", Waypoints.rightStartToRightScale));									// To Redo/Improve
+		//path.add(new Path("rightStartToLeftScale", Waypoints.rightStartToLeftScale));									// To Redo/Improve
+		//path.add(new Path("rightStartToRightSwitchReverseOne", Waypoints.rightStartToRightSwitchReverseOne));			// To Test
+		//path.add(new Path("rightStartToRightSwitchReverseTwo", Waypoints.rightStartToRightSwitchReverseTwo));			// To Test
+		//path.add(new Path("rightStartToLeftSwitchNearReverseOne", Waypoints.rightStartToLeftSwitchNearReverseOne));	// To Test
+		//path.add(new Path("rightStartToLeftSwitchNearReverseTwo", Waypoints.rightStartToLeftSwitchNearReverseTwo));	// To Test
+		//path.add(new Path("rightStartToLeftSwitchFarReverseOne", Waypoints.rightStartToLeftSwitchFarReverseOne));		// To Test
+		//path.add(new Path("rightStartToLeftSwitchFarReverseTwo", Waypoints.rightStartToLeftSwitchFarReverseTwo));		// To Test
 		//*/
 	}
 }
