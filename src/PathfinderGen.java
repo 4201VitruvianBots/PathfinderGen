@@ -53,16 +53,50 @@ public class PathfinderGen {
 	
 	static void initializePaths(){
 		// Straight Autos
+		
 		path.add(new Path("driveStraight", Waypoints.driveStraight));
 		path.add(new Path("driveCalibration", Waypoints.driveCalibration));
-		path.add(new Path("centerAutoLeft", Waypoints.centerAutoLeft));
-		path.add(new Path("centerAutoRight", Waypoints.centerAutoRight));
 		path.add(new Path("scaleToEdgeCube", Waypoints.scaleToEdgeCube));												// To Redo/Improve
-		path.add(new Path("edgeCubeToScale", Waypoints.edgeCubeToScale));												// To Redo/Improve
-		//path.add(new Path("edgeCubeToSwitch", Waypoints.edgeCubeToSwitch));											// To Test (?)
-		//path.get(path.size())			// shortcut to modify the last added path
+		path.get(path.size() - 1).setMaxVel(1.75);									// To Redo/Improve
+		path.get(path.size() - 1).setMaxAccel(1.75);									// To Redo/Improve	
+		path.add(new Path("edgeCubeToScaleDrop", Waypoints.edgeCubeToScaleDrop));												// To Redo/Improve
+		path.get(path.size() - 1).setMaxVel(4);									// To Redo/Improve
+		path.get(path.size() - 1).setMaxAccel(4);									// To Redo/Improve	
+		path.add(new Path("edgeCubeToScaleShoot", Waypoints.edgeCubeToScaleShoot));												// To Redo/Improve
+		path.get(path.size() - 1).setMaxVel(4);									// To Redo/Improve
+		path.get(path.size() - 1).setMaxAccel(4);			
+		path.add(new Path("edgeCubeFarToScale", Waypoints.edgeCubeFarToScale));												// To Redo/Improve
+		path.get(path.size() - 1).setMaxVel(4);									// To Redo/Improve
+		path.get(path.size() - 1).setMaxAccel(4);									// To Redo/Improve	
+		path.add(new Path("edgeCubeToSwitch", Waypoints.edgeCubeToSwitch));											// To Test (?)
+		path.get(path.size() - 1).setMaxVel(4);									// To Redo/Improve
+		path.get(path.size() - 1).setMaxAccel(4);									// To Redo/Improve	
+		path.add(new Path("leftScaleToEdgeCubeFar", Waypoints.leftScaleToEdgeCubeFar));												// To Redo/Improve
+		path.get(path.size() - 1).setMaxVel(1);									// To Redo/Improve
+		path.get(path.size() - 1).setMaxAccel(1);			
+		path.add(new Path("rightScaleToEdgeCubeFar", Waypoints.rightScaleToEdgeCubeFar));												// To Redo/Improve
+		path.get(path.size() - 1).setMaxVel(1);									// To Redo/Improve
+		path.get(path.size() - 1).setMaxAccel(1);									// To Redo/Improve	
 		
+		// Center Autos
+		//path.add(new Path("centerAutoLeft", Waypoints.centerAutoLeft));
+		//path.add(new Path("centerAutoRight", Waypoints.centerAutoRight));
+		
+		// Right Autos
+		/*
+		path.add(new Path("rightStartToRightScale", Waypoints.rightStartToRightScale));								// To Redo/Improve
+		path.add(new Path("rightStartToLeftScale", Waypoints.rightStartToLeftScale));									// To Redo/Improve
+		path.add(new Path("rightStartToRightSwitchReverseOne", Waypoints.rightStartToRightSwitchReverseOne));			// To Test
+		path.add(new Path("rightStartToRightSwitchReverseTwo", Waypoints.rightStartToRightSwitchReverseTwo));			// To Test
+		path.add(new Path("rightStartToLeftSwitchNearReverseOne", Waypoints.rightStartToLeftSwitchNearReverseOne));	// To Test
+		path.add(new Path("rightStartToLeftSwitchNearReverseTwo", Waypoints.rightStartToLeftSwitchNearReverseTwo));	// To Test
+		path.add(new Path("rightStartToLeftSwitchFarReverseOne", Waypoints.rightStartToLeftSwitchFarReverseOne));		// To Test
+		path.add(new Path("rightStartToLeftSwitchFarReverseTwo", Waypoints.rightStartToLeftSwitchFarReverseTwo));		// To Test
+		path.add(new Path("rightScaleToCubeSix", Waypoints.rightScaleToCubeSix));
+		//*/
+				
 		// Left Autos
+		/*
 		path.add(new Path("leftStartToLeftScale", Waypoints.leftStartToLeftScale));										// To Redo/Improve
 		path.add(new Path("leftStartToRightScale", Waypoints.leftStartToRightScale));									// To Redo/Improve
 		path.add(new Path("leftStartToLeftSwitchReverseOne", Waypoints.leftStartToLeftSwitchReverseOne));
@@ -72,18 +106,6 @@ public class PathfinderGen {
 		path.add(new Path("leftStartToRightSwitchFarReverseOne", Waypoints.leftStartToRightSwitchFarReverseOne));
 		path.add(new Path("leftStartToRightSwitchFarReverseTwo", Waypoints.leftStartToRightSwitchFarReverseTwo));
 		path.add(new Path("leftScaleToCubeOne", Waypoints.leftScaleToCubeOne));
-		//*/
-		
-		// Right Autos
-		path.add(new Path("rightStartToRightScale", Waypoints.rightStartToRightScale));									// To Redo/Improve
-		//path.add(new Path("rightStartToLeftScale", Waypoints.rightStartToLeftScale));									// To Redo/Improve
-		//path.add(new Path("rightStartToRightSwitchReverseOne", Waypoints.rightStartToRightSwitchReverseOne));			// To Test
-		//path.add(new Path("rightStartToRightSwitchReverseTwo", Waypoints.rightStartToRightSwitchReverseTwo));			// To Test
-		//path.add(new Path("rightStartToLeftSwitchNearReverseOne", Waypoints.rightStartToLeftSwitchNearReverseOne));	// To Test
-		//path.add(new Path("rightStartToLeftSwitchNearReverseTwo", Waypoints.rightStartToLeftSwitchNearReverseTwo));	// To Test
-		//path.add(new Path("rightStartToLeftSwitchFarReverseOne", Waypoints.rightStartToLeftSwitchFarReverseOne));		// To Test
-		//path.add(new Path("rightStartToLeftSwitchFarReverseTwo", Waypoints.rightStartToLeftSwitchFarReverseTwo));		// To Test
-		//path.add(new Path("rightScaleToCubeSix", Waypoints.rightScaleToCubeSix));
 		//*/
 	}
 }

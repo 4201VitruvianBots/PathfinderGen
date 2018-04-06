@@ -6,7 +6,7 @@ public class Waypoints {
 	// Drive Straight
 	public static Waypoint[] driveStraight = {
 		new Waypoint(0, 0, 0),
-		new Waypoint(5, 0, 0)
+		new Waypoint(4, 0, 0)
 	};
 	
 	public static Waypoint[] driveCalibration = {
@@ -16,17 +16,37 @@ public class Waypoints {
 	
 	public static Waypoint[] scaleToEdgeCube = {
 		new Waypoint(5.5, 0.8889, 0),
-		new Waypoint(7.1, 0.8889, 0),
+		new Waypoint(7.6, 0.8889, 0),
 	};
 	
-	public static Waypoint[] edgeCubeToScale = {
+	public static Waypoint[] edgeCubeToScaleDrop = {
 		new Waypoint(5.5, 0.8889, 0),
-		new Waypoint(7.1, 0.8889, 0),
+		new Waypoint(7.4, 0.8889, 0),
 	};
 	
+	public static Waypoint[] edgeCubeToScaleShoot = {
+		new Waypoint(5.5, 0.8889, 0),
+		new Waypoint(7.6, 0.8889, 0),
+	};
+		
 	public static Waypoint[] edgeCubeToSwitch = {
 		new Waypoint(5.5, 0.8889, 0),
 		new Waypoint(5.8, 0.8889, 0),
+	};
+	
+	public static Waypoint[] leftScaleToEdgeCubeFar = {
+		new Waypoint(5.7, 0, 0),
+		new Waypoint(8, -0.2, 0),
+	};
+	
+	public static Waypoint[] rightScaleToEdgeCubeFar = {
+		new Waypoint(5.7, 0, 0),
+		new Waypoint(8, 0.2, 0),
+	};
+	
+	public static Waypoint[] edgeCubeFarToScale = {
+		new Waypoint(5.7, 0.8889, 0),
+		new Waypoint(7.6, 0.8889, 0),
 	};
 	
 	// Center Autos
@@ -44,17 +64,17 @@ public class Waypoints {
 	public static Waypoint[] rightStartToRightScale = {
 		new Waypoint(0, 0, 0),
 		new Waypoint(5.25, 0, 0),
-		new Waypoint(7.1, 1.4, 0),
+		new Waypoint(7.6, 0.8, 0),
 	};
 	
 	public static Waypoint[] rightStartToLeftScale = {
 		new Waypoint(0, 0, 0),
-		new Waypoint(3.3333, -0.35, 0),
-		new Waypoint(4.745, -0.35, 0),
-		new Waypoint(5.745, 0.5, Pathfinder.d2r(90)),
-		new Waypoint(5.745, 4.5, Pathfinder.d2r(90)),
-		new Waypoint(6.75, 5.55, 0),						
-		new Waypoint(7, 5.55, 0),		
+		new Waypoint(3.3333, -0.4, 0),
+		new Waypoint(5.3333, -0.4, 0),
+		new Waypoint(6.3, 0.5, Pathfinder.d2r(90)),
+		new Waypoint(6.3, 4, Pathfinder.d2r(90)),
+		new Waypoint(7.5, 5, 0),						
+		new Waypoint(8.4, 5, 0),		
 	};
 	
 	// 
@@ -105,7 +125,7 @@ public class Waypoints {
 	public static Waypoint[] leftStartToLeftScale = {
 		new Waypoint(0, 0, 0),
 		new Waypoint(5.25, 0, 0),
-		new Waypoint(7.1, -1.4, 0),
+		new Waypoint(7.6, -0.8, 0),
 	};
 	
 	public static Waypoint[] leftStartToRightScale = {
@@ -114,8 +134,8 @@ public class Waypoints {
 		new Waypoint(5.3333, 0.4, 0),
 		new Waypoint(6.3, -0.5, Pathfinder.d2r(-90)),
 		new Waypoint(6.3, -4, Pathfinder.d2r(-90)),
-		new Waypoint(7, -5.4, 0),						
-		new Waypoint(7.2, -5.4, 0),
+		new Waypoint(7.5, -5, 0),							
+		new Waypoint(8.4, -5, 0),
 	};
 	
 	// 4/2/2018 5:12 PM
