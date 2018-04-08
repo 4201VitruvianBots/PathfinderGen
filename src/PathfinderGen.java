@@ -54,11 +54,14 @@ public class PathfinderGen {
 	static void initializePaths(){
 		// Straight Autos
 		
-		path.add(new Path("driveStraight", Waypoints.driveStraight));
-		path.add(new Path("driveCalibration", Waypoints.driveCalibration));
-		path.add(new Path("scaleToEdgeCube", Waypoints.scaleToEdgeCube));												// To Redo/Improve
+		//path.add(new Path("driveStraight", Waypoints.driveStraight));
+		//path.add(new Path("driveCalibration", Waypoints.driveCalibration));
+		path.add(new Path("scaleToEdgeCubeLeft", Waypoints.scaleToEdgeCubeLeft));												// To Redo/Improve
 		path.get(path.size() - 1).setMaxVel(1.75);									// To Redo/Improve
 		path.get(path.size() - 1).setMaxAccel(1.75);									// To Redo/Improve	
+		path.add(new Path("scaleToEdgeCubeRight", Waypoints.scaleToEdgeCubeLeft));												// To Redo/Improve
+		path.get(path.size() - 1).setMaxVel(1.75);									// To Redo/Improve
+		path.get(path.size() - 1).setMaxAccel(1.75);						
 		path.add(new Path("edgeCubeToScaleDrop", Waypoints.edgeCubeToScaleDrop));												// To Redo/Improve
 		path.get(path.size() - 1).setMaxVel(4);									// To Redo/Improve
 		path.get(path.size() - 1).setMaxAccel(4);									// To Redo/Improve	
@@ -79,8 +82,14 @@ public class PathfinderGen {
 		path.get(path.size() - 1).setMaxAccel(1);									// To Redo/Improve	
 		
 		// Center Autos
-		//path.add(new Path("centerAutoLeft", Waypoints.centerAutoLeft));
-		//path.add(new Path("centerAutoRight", Waypoints.centerAutoRight));
+		/*
+		path.add(new Path("centerAutoLeft", Waypoints.centerAutoLeft));
+		path.get(path.size() - 1).setMaxVel(1.5);									// To Redo/Improve
+		path.get(path.size() - 1).setMaxAccel(1.5);									// To Redo/Improve	
+		path.add(new Path("centerAutoRight", Waypoints.centerAutoRight));
+		path.get(path.size() - 1).setMaxVel(1.5);									// To Redo/Improve
+		path.get(path.size() - 1).setMaxAccel(1.5);									// To Redo/Improve	
+		//*/
 		
 		// Right Autos
 		/*

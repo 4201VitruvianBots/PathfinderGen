@@ -14,9 +14,14 @@ public class Waypoints {
 		new Waypoint(3, 0, 0)
 	};
 	
-	public static Waypoint[] scaleToEdgeCube = {
-		new Waypoint(5.5, 0.8889, 0),
-		new Waypoint(7.6, 0.8889, 0),
+	public static Waypoint[] scaleToEdgeCubeLeft = {
+		new Waypoint(5.5, 0, 0),
+		new Waypoint(7.6, 0, 0),
+	};
+	
+	public static Waypoint[] scaleToEdgeCubeRight = {
+		new Waypoint(5.5, 0, 0),
+		new Waypoint(7.6, 0, 0),
 	};
 	
 	public static Waypoint[] edgeCubeToScaleDrop = {
@@ -26,7 +31,7 @@ public class Waypoints {
 	
 	public static Waypoint[] edgeCubeToScaleShoot = {
 		new Waypoint(5.5, 0.8889, 0),
-		new Waypoint(7.6, 0.8889, 0),
+		new Waypoint(7.4, 0.8889, 0),
 	};
 		
 	public static Waypoint[] edgeCubeToSwitch = {
@@ -64,7 +69,7 @@ public class Waypoints {
 	public static Waypoint[] rightStartToRightScale = {
 		new Waypoint(0, 0, 0),
 		new Waypoint(5.25, 0, 0),
-		new Waypoint(7.6, 0.8, 0),
+		new Waypoint(7.6, 1, 0),
 	};
 	
 	public static Waypoint[] rightStartToLeftScale = {
@@ -125,7 +130,7 @@ public class Waypoints {
 	public static Waypoint[] leftStartToLeftScale = {
 		new Waypoint(0, 0, 0),
 		new Waypoint(5.25, 0, 0),
-		new Waypoint(7.6, -0.8, 0),
+		new Waypoint(7.6, -1, 0),
 	};
 	
 	public static Waypoint[] leftStartToRightScale = {
