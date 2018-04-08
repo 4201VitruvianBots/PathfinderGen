@@ -57,7 +57,7 @@ public class Waypoints {
 	// Center Autos
 	public static Waypoint[] centerAutoLeft = {
 		new Waypoint(0, 2.8333, 0),
-		new Waypoint(3.05, 4.4, 0)				//new Waypoint(3.1, 4.5, 0)
+		new Waypoint(3.05, 4.3, 0)				//new Waypoint(3.1, 4.5, 0)
 	};
 	
 	public static Waypoint[] centerAutoRight = {
@@ -65,6 +65,21 @@ public class Waypoints {
 		new Waypoint(3.05, 1.4, 0)				//new Waypoint(3.1, 1.5, 0)
 	};
 		
+	public static Waypoint[] switchBackLeft = {
+		new Waypoint(0, 4.3, 0),
+		new Waypoint(3.05, 2.8333, 0)				//new Waypoint(3.1, 4.5, 0)
+	};
+	
+	public static Waypoint[] switchBackRight = {
+		new Waypoint(0, 1.4, 0),
+		new Waypoint(3.05, 2.8333, 0)				//new Waypoint(3.1, 1.5, 0)
+	};
+	
+	public static Waypoint[] centerAutoGrabCube = {
+		new Waypoint(0, 0, 0),
+		new Waypoint(2.4, 0, 0)				//new Waypoint(3.1, 1.5, 0)
+	};
+	
 	// Right Autos
 	public static Waypoint[] rightStartToRightScale = {
 		new Waypoint(0, 0, 0),
