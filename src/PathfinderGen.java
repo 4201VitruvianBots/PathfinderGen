@@ -82,6 +82,7 @@ public class PathfinderGen {
 		path.get(path.size() - 1).setMaxAccel(1);									// To Redo/Improve	
 		
 		// Center Autos
+		/*
 		path.add(new Path("centerAutoLeft", Waypoints.centerAutoLeft));
 		path.get(path.size() - 1).setMaxVel(1.5);									// To Redo/Improve
 		path.get(path.size() - 1).setMaxAccel(1.5);									// To Redo/Improve	
@@ -89,23 +90,23 @@ public class PathfinderGen {
 		path.get(path.size() - 1).setMaxVel(1.5);									// To Redo/Improve
 		path.get(path.size() - 1).setMaxAccel(1.5);									// To Redo/Improve	
 		path.add(new Path("switchBackLeft", Waypoints.switchBackLeft));
-		path.get(path.size() - 1).setMaxVel(1.75);								
-		path.get(path.size() - 1).setMaxAccel(1.75);
+		path.get(path.size() - 1).setMaxVel(1.8);								
+		path.get(path.size() - 1).setMaxAccel(1.8);
 		path.add(new Path("switchBackRight", Waypoints.switchBackRight));
-		path.get(path.size() - 1).setMaxVel(1.75);								
-		path.get(path.size() - 1).setMaxAccel(1.75);
+		path.get(path.size() - 1).setMaxVel(1.8);								
+		path.get(path.size() - 1).setMaxAccel(1.8);
 		path.add(new Path("centerAutoGrabCube", Waypoints.centerAutoGrabCube));								
-		path.get(path.size() - 1).setMaxVel(1.75);								
-		path.get(path.size() - 1).setMaxAccel(1.75);
+		//path.get(path.size() - 1).setMaxVel(1.8);								
+		//path.get(path.size() - 1).setMaxAccel(1.8);
 		path.add(new Path("centerAutoGrabCubeReverse", Waypoints.centerAutoGrabCube));								
-		path.get(path.size() - 1).setMaxVel(1.75);								
-		path.get(path.size() - 1).setMaxAccel(1.75);
+		path.get(path.size() - 1).setMaxVel(1.8);								
+		path.get(path.size() - 1).setMaxAccel(1.8);
 		path.add(new Path("centerAutoLeftFaster", Waypoints.centerAutoLeft));
-		path.get(path.size() - 1).setMaxVel(1.75);									// To Redo/Improve
-		path.get(path.size() - 1).setMaxAccel(1.75);									// To Redo/Improve	
+		path.get(path.size() - 1).setMaxVel(1.8);									// To Redo/Improve
+		path.get(path.size() - 1).setMaxAccel(1.8);									// To Redo/Improve	
 		path.add(new Path("centerAutoRightFaster", Waypoints.centerAutoRight));
-		path.get(path.size() - 1).setMaxVel(1.75);									// To Redo/Improve
-		path.get(path.size() - 1).setMaxAccel(1.75);									// To Redo/Improve	
+		path.get(path.size() - 1).setMaxVel(1.8);									// To Redo/Improve
+		path.get(path.size() - 1).setMaxAccel(1.8);									// To Redo/Improve	
 		//*/
 		
 		// Right Autos
@@ -122,7 +123,6 @@ public class PathfinderGen {
 		//*/
 				
 		// Left Autos
-		/*
 		path.add(new Path("leftStartToLeftScale", Waypoints.leftStartToLeftScale));										// To Redo/Improve
 		path.add(new Path("leftStartToRightScale", Waypoints.leftStartToRightScale));									// To Redo/Improve
 		path.add(new Path("leftStartToLeftSwitchReverseOne", Waypoints.leftStartToLeftSwitchReverseOne));
