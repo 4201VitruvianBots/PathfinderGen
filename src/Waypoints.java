@@ -6,7 +6,7 @@ public class Waypoints {
 	// Drive Straight
 	public static Waypoint[] driveStraight = {
 		new Waypoint(0, 0, 0),
-		new Waypoint(4, 0, 0)
+		new Waypoint(5, 0, 0)
 	};
 	
 	public static Waypoint[] driveCalibration = {
