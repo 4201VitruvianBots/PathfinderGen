@@ -113,7 +113,6 @@ public class PathGen {
 		path.get("scaleToEdgeCubeLeft").setMaxVel(1.75);	
 		path.get("scaleToEdgeCubeLeft").setMaxAccel(1.75);	
 		
-		
 		// To Redo/Improve	
 		path.put("scaleToEdgeCubeRight", new Path("scaleToEdgeCubeRight", Waypoints.scaleToEdgeCubeLeft));											
 		path.get("scaleToEdgeCubeRight").setMaxVel(1.75);									
