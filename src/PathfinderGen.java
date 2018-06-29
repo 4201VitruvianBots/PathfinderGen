@@ -1,5 +1,15 @@
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Trajectory;
@@ -16,35 +26,65 @@ public class PathfinderGen {
 	
 	static int index;
 	
-	static ArrayList<Path> path = new ArrayList<>();
+	static Map<String, Path> path = new HashMap<>();
 	static TankModifier modifier;
 	
 	public static void main(String[] args){
 		initializePaths();
 
 		Trajectory trajectory;
-		for(int i = 0; i < path.size(); i++) {
+		
+		Set<String> keySet = path.keySet();
+		Iterator<String> iterator = keySet.iterator();
+
+		while(iterator.hasNext()) {
+			String key = iterator.next();
+			Path checkPath = null;
+
+			boolean newPath = false;
 			try {
+				FileInputStream fileIn = new FileInputStream("PathMemory/" + path.get(key).name + ".ser");
+				ObjectInputStream in = new ObjectInputStream(fileIn);
+				checkPath = (Path) in.readObject();
+				in.close();
+				fileIn.close();
+			} catch(Exception e) {
+				System.out.println("File Read Error: " + e.getMessage());
+				newPath = true;
+			}
+			if(checkPath != null && path.get(key).equals(checkPath)) {
+				System.out.println("Skipping Path Generation");
+			}
+
+			if(newPath) {
 				System.out.println("Generating Path...");
-				trajectory = Pathfinder.generate(path.get(i).path, path.get(i).config);
+				trajectory = Pathfinder.generate(path.get(key).path, path.get(key).config);
 				System.out.println("Path Generated!");
-				
+
 				modifier = new TankModifier(trajectory).modify(0.7639);
-				
-				File leftCsvFile = new File("Pathfinder/" + path.get(i).name + "_Left.csv");		// Remember to rename a successful file, otherwise it will be overwritten
+
+				File leftCsvFile = new File("Pathfinder/" + path.get(key).name + "_Left.csv");		// Remember to rename a successful file, otherwise it will be overwritten
 				Pathfinder.writeToCSV(leftCsvFile, modifier.getLeftTrajectory());
-				File rightCsvFile = new File("Pathfinder/" + path.get(i).name + "_Right.csv");		// Remember to rename a successful file, otherwise it will be overwritten
+				File rightCsvFile = new File("Pathfinder/" + path.get(key).name + "_Right.csv");		// Remember to rename a successful file, otherwise it will be overwritten
 				Pathfinder.writeToCSV(rightCsvFile, modifier.getRightTrajectory());
 				if(leftCsvFile.exists() && rightCsvFile.exists()) {
-					System.out.println("Success! File \"" + path.get(i).name + "_Left.csv\" was generated!");
-					System.out.println("Success! File \"" + path.get(i).name + "_Right.csv\" was generated!");
+					System.out.println("Success! File \"" + path.get(key).name + "_Left.csv\" was generated!");
+					System.out.println("Success! File \"" + path.get(key).name + "_Right.csv\" was generated!");
 				} else {
-					System.out.println("Error: File \"" + path.get(i).name + "_Left.csv\" was not created");
-					System.out.println("Error: File \"" + path.get(i).name + "_Right.csv\" was not created");
+					System.out.println("Error: File \"" + path.get(key).name + "_Left.csv\" was not created");
+					System.out.println("Error: File \"" + path.get(key).name + "_Right.csv\" was not created");
 				}
-				index = i;
-			} catch(Exception e){
-				System.out.println("Error: " + e.getMessage());
+				try {
+					FileOutputStream fileOut = new FileOutputStream("PathMemory/" + path.get(key).name + ".ser");         
+					ObjectOutputStream out = new ObjectOutputStream(fileOut);
+					out.writeObject(path.get(key));
+					out.close();
+					fileOut.close();
+				} catch (FileNotFoundException e) {
+					System.out.println("File not found");
+				} catch (IOException e) {
+					System.out.println("Error initializing stream: " + e.getMessage());
+				}
 			}
 		}
 
@@ -56,9 +96,12 @@ public class PathfinderGen {
 		
 		//path.add(new Path("driveStraight", Waypoints.driveStraight));
 		//path.add(new Path("driveCalibration", Waypoints.driveCalibration));
-		path.add(new Path("scaleToEdgeCubeLeft", Waypoints.scaleToEdgeCubeLeft));												// To Redo/Improve
-		path.get(path.size() - 1).setMaxVel(1.75);									// To Redo/Improve
-		path.get(path.size() - 1).setMaxAccel(1.75);									// To Redo/Improve	
+		path.put("scaleToEdgeCubeLeft", new Path("scaleToEdgeCubeLeft", Waypoints.scaleToEdgeCubeLeft));												// To Redo/Improve
+		path.get("scaleToEdgeCubeLeft").setMaxVel(1.75);	
+		path.get("scaleToEdgeCubeLeft").setMaxAccel(1.75);	
+		/*
+		
+		// To Redo/Improve	
 		path.add(new Path("scaleToEdgeCubeRight", Waypoints.scaleToEdgeCubeLeft));												// To Redo/Improve
 		path.get(path.size() - 1).setMaxVel(1.75);									// To Redo/Improve
 		path.get(path.size() - 1).setMaxAccel(1.75);						
@@ -123,7 +166,7 @@ public class PathfinderGen {
 		//*/
 				
 		// Left Autos
-		path.add(new Path("leftStartToLeftScale", Waypoints.leftStartToLeftScale));										// To Redo/Improve
+/*		path.add(new Path("leftStartToLeftScale", Waypoints.leftStartToLeftScale));										// To Redo/Improve
 		path.add(new Path("leftStartToRightScale", Waypoints.leftStartToRightScale));									// To Redo/Improve
 		path.add(new Path("leftStartToLeftSwitchReverseOne", Waypoints.leftStartToLeftSwitchReverseOne));
 		path.add(new Path("leftStartToLeftSwitchReverseTwo", Waypoints.leftStartToLeftSwitchReverseTwo));
@@ -131,7 +174,7 @@ public class PathfinderGen {
 		path.add(new Path("leftStartToRightSwitchNearReverseTwo", Waypoints.leftStartToRightSwitchNearReverseTwo));
 		path.add(new Path("leftStartToRightSwitchFarReverseOne", Waypoints.leftStartToRightSwitchFarReverseOne));
 		path.add(new Path("leftStartToRightSwitchFarReverseTwo", Waypoints.leftStartToRightSwitchFarReverseTwo));
-		path.add(new Path("leftScaleToCubeOne", Waypoints.leftScaleToCubeOne));
+		path.add(new Path("leftScaleToCubeOne", Waypoints.leftScaleToCubeOne));*/
 		//*/
 	}
 }
