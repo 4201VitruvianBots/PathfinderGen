@@ -3,10 +3,6 @@ import java.io.Serializable;
 import jaci.pathfinder.Waypoint;
 
 public class SerializedWaypoint implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	public double[] x, y, angle;
 	public int length;
 	

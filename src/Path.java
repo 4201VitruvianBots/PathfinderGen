@@ -1,20 +1,18 @@
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Objects;
 
 import jaci.pathfinder.Trajectory;
 import jaci.pathfinder.Waypoint;
 
 public class Path implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	transient Trajectory.FitMethod fitMethod = PathGen.fitMethod;
+	transient Trajectory.FitMethod fitMethod = PathfinderGen.fitMethod;
 	int fitMethodType = Trajectory.FitMethod.HERMITE_CUBIC == fitMethod ? 0 : 1;
-	double max_vel = PathGen.max_vel;
-	double max_accel = PathGen.max_accel;
-	double max_jerk = PathGen.max_jerk;
-	int samples = PathGen.samples;
-	double period = PathGen.period;
+	double max_vel = PathfinderGen.max_vel;
+	double max_accel = PathfinderGen.max_accel;
+	double max_jerk = PathfinderGen.max_jerk;
+	int samples = PathfinderGen.samples;
+	double period = PathfinderGen.period;
 	
 	public String name;
 	public transient Waypoint[] path;
@@ -62,6 +60,10 @@ public class Path implements Serializable {
 	
 	public void reconfigureSettings() {
 		config = new Trajectory.Config(fitMethod, samples, period, max_vel, max_accel, max_jerk);
+	}
+	
+	public int hashCode() {
+		return Objects.hash(Arrays.hashCode(path));
 	}
 	
 	public boolean equals(Object obj) {
