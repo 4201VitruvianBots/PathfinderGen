@@ -70,9 +70,9 @@ public class Path implements Serializable {
 		Path testObj = (Path) obj;
 		if(!testObj.name.equals(this.name))
 			return false;
-		if(testObj.fitMethodType != this.fitMethodType)
-			return false;
 		if(!testObj.serializedPath.equals(this.serializedPath))
+			return false;
+		if(testObj.fitMethodType != this.fitMethodType)
 			return false;
 		if(testObj.max_vel != this.max_vel)
 			return false;
