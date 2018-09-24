@@ -30,7 +30,7 @@ public class Path implements Serializable {
 	public void setMaxVel(double max_vel) {
 		this.max_vel = max_vel;
 		reconfigureSettings();
-	}
+	}	
 	
 	public void setMaxAccel(double max_accel) {
 		this.max_accel = max_accel;
