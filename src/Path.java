@@ -6,13 +6,13 @@ import jaci.pathfinder.Trajectory;
 import jaci.pathfinder.Waypoint;
 
 public class Path implements Serializable {
-	transient Trajectory.FitMethod fitMethod = PathfinderGen.fitMethod;
+	transient Trajectory.FitMethod fitMethod = PathGen.fitMethod;
 	int fitMethodType = Trajectory.FitMethod.HERMITE_CUBIC == fitMethod ? 0 : 1;
-	double max_vel = PathfinderGen.max_vel;
-	double max_accel = PathfinderGen.max_accel;
-	double max_jerk = PathfinderGen.max_jerk;
-	int samples = PathfinderGen.samples;
-	double period = PathfinderGen.period;
+	double max_vel = PathGen.max_vel;
+	double max_accel = PathGen.max_accel;
+	double max_jerk = PathGen.max_jerk;
+	int samples = PathGen.samples;
+	double period = PathGen.period;
 	
 	public String name;
 	public transient Waypoint[] path;
