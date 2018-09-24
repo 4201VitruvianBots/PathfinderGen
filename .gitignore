@@ -2,3 +2,4 @@ bin/
 Pathfinder/
 PathMemory/
 *.log
+/.gradle/
